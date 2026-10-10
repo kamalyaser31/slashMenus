@@ -19,3 +19,4 @@
 - 2026-10-10: 2026.1 - First public release as Slash Menus, with an Arabic translation and Arabic documentation, under GPL v2.
 - 2026-10-10: Published release 2026.1 on GitHub (kamalyaser31/slashMenus).
 - 2026-10-10: Announced Slash Menus 2026.1 on anthropics/claude-code#94353, openai/codex#32375, anomalyco/opencode#43771 and nvaccess/nvda#18964.
+- 2026-10-10: Also announced Slash Menus 2026.1 on openai/codex#34339.
