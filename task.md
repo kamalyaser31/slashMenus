@@ -1,3 +1,3 @@
 # Tasks
 
-- [ ] Submit 2026.1 to the NVDA Add-on Store (nvaccess/addon-datastore issue); needs the user's approval before opening - not_started
+- [ ] Store submission nvaccess/addon-datastore#12101 awaits manual submitter approval (first submission for slashMenus); watch for merge or reviewer questions - in_progress

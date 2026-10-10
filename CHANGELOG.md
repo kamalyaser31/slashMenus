@@ -20,3 +20,4 @@
 - 2026-10-10: Published release 2026.1 on GitHub (kamalyaser31/slashMenus).
 - 2026-10-10: Announced Slash Menus 2026.1 on anthropics/claude-code#94353, openai/codex#32375, anomalyco/opencode#43771 and nvaccess/nvda#18964.
 - 2026-10-10: Also announced Slash Menus 2026.1 on openai/codex#34339.
+- 2026-10-10: Submitted 2026.1 to the NVDA Add-on Store (nvaccess/addon-datastore#12101).
