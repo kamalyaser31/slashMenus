@@ -1,8 +1,8 @@
-# Plan: Popup Announcer (generic NVDA add-on)
+# Plan: Slash Menus (generic NVDA add-on)
 
 Status: draft for review. No code is written before approval.
 Evidence: [../claude/popup_survey.md](../claude/popup_survey.md).
-Working name: `popupAnnouncer`, open to change.
+Name: `slashMenus` (renamed from `popupAnnouncer`).
 
 ## Goal
 
@@ -53,7 +53,7 @@ Each milestone is checked live by the user before the next one starts. Nothing i
 | # | Milestone | Live test by the user | Log lines I read |
 |---|---|---|---|
 | 0 | **Verify the step B query.** Reinstall `probe/` once with a buffer query for button, menu item and option rows near the composer. | In OpenCode and WhatsApp: type `@` or `/`, press Down twice | `popupProbe` lines: matched rows near the composer, with their class and background |
-| 1 | Core plus step A: trigger, retry, `attribute_current`, the distance filter, dynamic arrow binding, speech | ChatGPT desktop `/` and `@`: hear the row change with each arrow; browse-mode arrows still work elsewhere | `popupAnnouncer found` (method and time, no names) |
+| 1 | Core plus step A: trigger, retry, `attribute_current`, the distance filter, dynamic arrow binding, speech | ChatGPT desktop `/` and `@`: hear the row change with each arrow; browse-mode arrows still work elsewhere | `slashMenus found` (method and time, no names) |
 | 2 | SELECTED marker | claude.ai `@` in Chrome | same |
 | 3 | Step B: odd class, then background colour | OpenCode `/` and `@`, then WhatsApp `@` | same |
 | 4 | Claude desktop: `@` (SELECTED or background) and `/` (focus moved to a nameless menu) | Claude `/` and `@` | same |
@@ -70,7 +70,7 @@ If milestone 0 shows that step B cannot find the rows, the plan stops there and 
 
 ## Engineering
 
-- New add-on folder `addons/popupAnnouncer/`: `manifest.ini`, one global plugin, `scripts/build_addon.py` copied from the Claude add-on.
+- New add-on folder `addons/slashMenus/`: `manifest.ini`, one global plugin, `scripts/build_addon.py` copied from the Claude add-on.
 - `run_tests.py` tests only the pure functions (odd one out, marker order, distance filter) on fake objects.
 - `ruff check --fix`, then `black`, then `flake8 --max-line-length 88`.
 - The project keeps its own `task.md`, `project_state.md` and `CHANGELOG.md`, gets an entry in the workspace `AGENTS.md` index, and its `README.md` is written with the `readme-writer` skill.

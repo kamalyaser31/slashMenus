@@ -1,4 +1,4 @@
-# Popup Announcer: speaks the "/" and "@" suggestion lists of AI composers.
+# Slash Menus: speaks the "/" and "@" suggestion lists of AI composers.
 # Focus stays in the composer while the list's highlight moves visually, so
 # NVDA hears nothing. After a trigger character we locate the list through
 # NVDA's virtual buffer (never by walking the page, which freezes NVDA), bind
@@ -120,7 +120,7 @@ def buffer_objects(buffer, query, limit, direction="next", start=None):
             if node.obj is not None:
                 found.append(node.obj)
     except Exception:
-        log.debugWarning("popupAnnouncer buffer query failed", exc_info=True)
+        log.debugWarning("slashMenus buffer query failed", exc_info=True)
     return found
 
 
@@ -209,7 +209,7 @@ def safe_next(walker):
     try:
         return next(walker, None)
     except Exception:
-        log.debugWarning("popupAnnouncer row scan step failed", exc_info=True)
+        log.debugWarning("slashMenus row scan step failed", exc_info=True)
         return None
 
 
@@ -221,7 +221,7 @@ def row_walkers(buffer, focus):
             for direction in ("previous", "next")
         ]
     except Exception:
-        log.debugWarning("popupAnnouncer row scan failed", exc_info=True)
+        log.debugWarning("slashMenus row scan failed", exc_info=True)
         return []
 
 
@@ -498,7 +498,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
         if ch in TRIGGERS and not self._active:
             # Logged so a list that never opens is never silent in the log.
             log.info(
-                "popupAnnouncer trigger %r app=%s role=%s composer=%s"
+                "slashMenus trigger %r app=%s role=%s composer=%s"
                 % (ch, obj.appModule.appName, obj.role.name, composer)
             )
         if not composer:
@@ -517,7 +517,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
         try:
             snapshot = self._snapshot(focus, attempt in ROW_SCAN_ATTEMPTS)
         except Exception:
-            log.error("popupAnnouncer search failed", exc_info=True)
+            log.error("slashMenus search failed", exc_info=True)
             return
         if snapshot is None and attempt + 1 < attempts:
             next_attempt = (generation, attempt + 1, attempts, started)
@@ -533,13 +533,13 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
                 self._end("list closed")
             else:
                 log.info(
-                    "popupAnnouncer no list app=%s after %d ms; %s"
+                    "slashMenus no list app=%s after %d ms; %s"
                     % (app, elapsed, self._steps_text())
                 )
             return
         if not self._active:
             log.info(
-                "popupAnnouncer open app=%s method=%s index=%d after %d ms; %s"
+                "slashMenus open app=%s method=%s index=%d after %d ms; %s"
                 % (app, snapshot[3], snapshot[0], elapsed, self._steps_text())
             )
         self._activate()
@@ -564,7 +564,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
             self._timer.Stop()
         if self._active:
             self.clearGestureBindings()
-            log.info("popupAnnouncer closed: %s" % reason)
+            log.info("slashMenus closed: %s" % reason)
         self._reset()
 
     def _speak(self, snapshot, interrupt, force=False):
@@ -602,7 +602,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
             # unrelated buttons and kept the arrows from the composer.
             snapshot = self._snapshot(api.getFocusObject(), scan_rows=False)
         except Exception:
-            log.error("popupAnnouncer move failed", exc_info=True)
+            log.error("slashMenus move failed", exc_info=True)
             return
         if snapshot is None and last_poll:
             self._end("list gone after a move")
@@ -622,7 +622,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
     def _log_move(self, snapshot, poll, started):
         elapsed = (time.monotonic() - started) * 1000
         log.info(
-            "popupAnnouncer move method=%s polls=%d after %d ms; %s"
+            "slashMenus move method=%s polls=%d after %d ms; %s"
             % (snapshot[3], poll + 1, elapsed, self._steps_text())
         )
 

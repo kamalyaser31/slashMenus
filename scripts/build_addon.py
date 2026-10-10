@@ -7,7 +7,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 
 def arguments():
-    parser = argparse.ArgumentParser(description="Build the Popup Announcer add-on.")
+    parser = argparse.ArgumentParser(description="Build the Slash Menus add-on.")
     parser.add_argument("--output-dir", type=Path, default=PROJECT_ROOT / "dist")
     return parser.parse_args()
 
@@ -24,7 +24,7 @@ def read_version():
 
 def build_archive(output_directory):
     output_directory.mkdir(parents=True, exist_ok=True)
-    archive_path = output_directory / f"popupAnnouncer-{read_version()}.nvda-addon"
+    archive_path = output_directory / f"slashMenus-{read_version()}.nvda-addon"
     temporary_path = archive_path.with_suffix(".tmp")
     files = [
         PROJECT_ROOT / "manifest.ini",

@@ -1,4 +1,4 @@
-# Popup Announcer for NVDA
+# Slash Menus for NVDA
 
 When you type `/` or `@` in many AI apps, a list of suggestions appears: commands, files, people to mention. You can move through it with the arrow keys, but the screen reader says nothing, because the app only changes the highlight on screen. This add-on reads that list for you.
 
@@ -43,7 +43,7 @@ The package is written to `dist/`.
 
 ## Reporting a problem
 
-If a list stays silent, NVDA's log says what happened. Open it with NVDA+F1 and look for lines starting with `popupAnnouncer`. They name the app and the method used, and never the items, so they are safe to share. Please send those lines with your report.
+If a list stays silent, NVDA's log says what happened. Open it with NVDA+F1 and look for lines starting with `slashMenus`. They name the app and the method used, and never the items, so they are safe to share. Please send those lines with your report.
 
 ## Contributing
 

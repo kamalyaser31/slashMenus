@@ -14,3 +14,4 @@
 - 2026-10-10: Confirmed on the user's report: claude.ai `/` and `@`, WhatsApp Web `@`, OpenCode `@`; the README table updated.
 - 2026-10-10: Scanned lists (OpenCode, WhatsApp) read their rows lazily, one sibling at a time on demand, instead of reading about 40 rows on opening; falls back to the full read if nothing is decided.
 - 2026-10-10: Measured: reading the rows on opening fell from about 450 ms to 15 ms, and WhatsApp opens in 530 ms. The second scan was moved earlier (attempt 3) because OpenCode draws its list late.
+- 2026-10-10: Renamed the add-on from Popup Announcer (`popupAnnouncer`) to Slash Menus (`slashMenus`); log lines now start with `slashMenus`.
