@@ -1,6 +1,6 @@
 # Project State
 
-- Purpose: a generic NVDA add-on that reads the `/` and `@` suggestion lists in AI apps (ChatGPT, Claude, OpenCode, WhatsApp). Evidence and plan: [PLAN.md](PLAN.md) and [../claude/popup_survey.md](../claude/popup_survey.md).
+- Purpose: a generic NVDA add-on that reads the `/` and `@` suggestion lists in AI apps (ChatGPT, Claude, OpenCode, WhatsApp). Evidence: [../claude/popup_survey.md](../claude/popup_survey.md). Add-on metadata lives in `buildVars.py`.
 - Structure: `globalPlugins/slashMenus/__init__.py` (NVDA layer: locating, session, dynamic key binding) and `detect.py` (pure rules with no NVDA import, tested by `run_tests.py`, 10/10).
 - Locating the list, in order: focus on a nameless menu (only within 3 s of a trigger) -> a cached container -> a buffer query on `xml-roles` listbox/menu beside the composer -> a buffer query on `attribute_current` (ChatGPT; its container is not cached, because ChatGPT splits the list into sections) -> a bounded row scan (button/menuitem/listitem, 150 rows in each direction from the composer, attempts 2, 6 and 9 only).
 - "Beside the composer": horizontal overlap, and the row lies entirely above or below the composer within 400 px. This excludes the composer's own buttons, WhatsApp's chat list and ChatGPT's sidebar link.
