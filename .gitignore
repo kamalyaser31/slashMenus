@@ -10,7 +10,11 @@ __pycache__/
 addon/manifest.ini
 addon/locale/*/manifest.ini
 addon/locale/*/LC_MESSAGES/nvda.mo
-addon/doc/
+addon/doc/*/*.html
+addon/doc/style.css
+# Copied from the root readme.md at build time
+addon/doc/en/
+config.json
 site_scons/site_tools/NVDATool/typings.py
 .sconsign.dblite
 

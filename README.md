@@ -1,68 +1,71 @@
 # Slash Menus for NVDA
 
-When you type `/` or `@` in many AI apps, a list of suggestions appears: commands, files, people to mention. You can move through it with the arrow keys, but the screen reader says nothing, because the app only changes the highlight on screen. This add-on reads that list for you.
+In many AI apps, typing `/` or `@` opens a short list: commands you can run, files you can attach, or people you can mention. You can move through this list with the arrow keys, but NVDA usually says nothing. This add-on makes NVDA read the list.
 
-## What it does
+## Problems it solves
 
-- When a list opens after `/` or `@`, NVDA says its name (or "Suggestions") and the highlighted item.
-- When you press Up or Down arrow, NVDA reads the newly highlighted item.
-- When you type more letters to filter the list, or press Backspace, NVDA reads the item that is now highlighted.
-- When you press Escape, Enter or Tab, the add-on lets the key through and stops listening.
-- The arrow keys are taken over only while a list is open. Everywhere else, including browse mode, they work as usual.
-- No total is announced, because these apps only draw part of a long list at a time.
+- **Silent command lists.** Typing `/` in ChatGPT, Claude or OpenCode opened a list of commands, but NVDA did not read it. You had to remember each command or type it in full.
+- **Choosing without hearing.** Typing `@` to pick a file, or a person in a WhatsApp group, gave no speech. You could not know what you were choosing before you pressed Enter.
+- **Silence while typing.** When you typed more letters to shorten the list, NVDA said nothing, so you could not tell if your item was still there.
+- **Searching the screen by hand.** To find the selected item, you had to leave the message box and explore the screen, and the list often closed.
 
-## Target apps
+These problems are reported to the app makers on GitHub. Until the apps fix them, this add-on lets you use the lists:
 
-Version 0.1.0 was built for these apps, from a study of how each one marks the highlighted item. "Confirmed" means tested with NVDA; "targeted" means built for it but not yet tested.
+- Claude: [anthropics/claude-code#94353](https://github.com/anthropics/claude-code/issues/94353)
+- ChatGPT and Codex: [openai/codex#32375](https://github.com/openai/codex/issues/32375)
+- OpenCode: [anomalyco/opencode#43771](https://github.com/anomalyco/opencode/issues/43771) (the add-on helps with the `/` and `@` lists only)
+- WhatsApp: [nvaccess/nvda#18964](https://github.com/nvaccess/nvda/issues/18964)
 
-| App | `/` | `@` |
-|---|---|---|
-| ChatGPT desktop | confirmed | confirmed |
-| ChatGPT in a Chromium browser | confirmed | targeted |
-| Claude desktop | confirmed | confirmed |
-| claude.ai | confirmed | confirmed |
-| OpenCode desktop | confirmed | confirmed |
-| WhatsApp desktop | no list | confirmed |
-| WhatsApp Web | no list | confirmed |
+## How to use it
 
-Other apps that build their lists the same way may work too. Apps in a terminal are not supported, because the terminal exposes nothing to read.
+There is nothing to set up and no new keys to learn. Just type as usual:
 
-## Installation
+1. In the message box, type `/` or `@`.
+2. NVDA says the name of the list (or "Suggestions") and the selected item.
+3. Press Up Arrow or Down Arrow. NVDA reads each item you move to.
+4. Type more letters to shorten the list, or press Backspace. NVDA reads the selected item again.
+5. Press Enter or Tab to choose the item, or Escape to close the list.
 
-1. Build the package, or take the `.nvda-addon` file from a release.
-2. Open the file and let NVDA install it.
-3. Restart NVDA.
+The arrow keys work as normal everywhere else. The add-on only uses them while one of these lists is open.
 
-To build the package yourself:
+NVDA does not say how many items the list has, because these apps only show part of a long list at a time.
 
-```
-scons
-```
+## Supported apps
 
-The package `slashMenus-<version>.nvda-addon` is written to the project folder. Its name, version and other details are set in [buildVars.py](buildVars.py).
+- ChatGPT: the desktop app, and the website in Chrome or Edge.
+- Claude: the desktop app and the claude.ai website.
+- OpenCode: the desktop app.
+- WhatsApp: the desktop app and WhatsApp Web, for the `@` list in groups. WhatsApp has no `/` list.
 
-## Reporting a problem
+Other apps that build their lists in the same way may also work. Apps that run inside a command window (terminal) are not supported.
 
-If a list stays silent, NVDA's log says what happened. Open it with NVDA+F1 and look for lines starting with `slashMenus`. They name the app and the method used, and never the items, so they are safe to share. Please send those lines with your report.
+## Installing
 
-## Contributing
+1. Download the `.nvda-addon` file from the [releases page](https://github.com/kamalyaser31/slashMenus/releases).
+2. Open the file. NVDA asks if you want to install the add-on. Choose Yes.
+3. Restart NVDA when asked.
 
-Bug reports and pull requests are welcome. Before changing the detection rules, run the checks:
+## If a list stays silent
 
-```
-python run_tests.py
-```
+Please tell us, and include a few lines from the NVDA log:
 
-Changes are listed in [CHANGELOG.md](CHANGELOG.md).
+1. Open the app and type `/` or `@` so the list opens.
+2. Press NVDA+F1 to open the log.
+3. Find the lines that start with `slashMenus` and copy them.
+4. Open a new issue on the [issues page](https://github.com/kamalyaser31/slashMenus/issues) and paste the lines there, with the name of the app.
 
-## بيانات المطور (Developer Details)
+These lines never contain your messages or the names in the list, so they are safe to share.
 
-- **المطور:** كمال ياسر (Kamal Yaser)
-- **البريد الإلكتروني:** [kamalyaser31@gmail.com](mailto:kamalyaser31@gmail.com)
-- **تيليجرام:** [@kamalyaser31](https://t.me/kamalyaser31)
+## For developers
 
----
+To build the add-on, run `scons` in the project folder. To run the checks, run `python run_tests.py`. All changes are listed in the [changelog](https://github.com/kamalyaser31/slashMenus/blob/main/CHANGELOG.md).
 
-## رخصة الاستخدام (License)
+## Developer
 
-يخضع هذا المشروع لشروط رخصة MIT License مفتوحة المصدر.
+- **Developer:** Kamal Yaser
+- **Email:** [kamalyaser31@gmail.com](mailto:kamalyaser31@gmail.com)
+- **Telegram:** [@kamalyaser31](https://t.me/kamalyaser31)
+
+## License
+
+This add-on is released under the GNU General Public License, version 2 (GPL v2).
