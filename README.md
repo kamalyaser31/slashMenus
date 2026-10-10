@@ -36,10 +36,10 @@ Other apps that build their lists the same way may work too. Apps in a terminal 
 To build the package yourself:
 
 ```
-python scripts/build_addon.py
+scons
 ```
 
-The package is written to `dist/`.
+The package `slashMenus-<version>.nvda-addon` is written to the project folder. Its name, version and other details are set in [buildVars.py](buildVars.py).
 
 ## Reporting a problem
 
@@ -53,7 +53,7 @@ Bug reports and pull requests are welcome. Before changing the detection rules, 
 python run_tests.py
 ```
 
-The design and the evidence behind it are in [PLAN.md](PLAN.md). Changes are listed in [CHANGELOG.md](CHANGELOG.md).
+Changes are listed in [CHANGELOG.md](CHANGELOG.md).
 
 ## بيانات المطور (Developer Details)
 

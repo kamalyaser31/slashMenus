@@ -26,7 +26,7 @@ addon_info = AddonInfo(
 
 pythonSources = ["addon/**/*.py"]
 i18nSources: list[str] = pythonSources + ["buildVars.py"]
-excludedFiles: list[str] = []
+excludedFiles: list[str] = ["*.pyc"]
 baseLanguage: str = "en"
 markdownExtensions: list[str] = []
 brailleTables: BrailleTables = {}
