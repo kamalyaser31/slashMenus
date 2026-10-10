@@ -1,0 +1,2 @@
+# No runtime dependencies: the add-on uses only NVDA built-in modules.
+# Development: ruff, black, flake8

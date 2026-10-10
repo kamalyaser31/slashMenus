@@ -1,0 +1,20 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# NVDA Addon build outputs
+*.nvda-addon
+*.pot
+
+# Generated files by scons
+addon/manifest.ini
+addon/locale/*/manifest.ini
+addon/locale/*/LC_MESSAGES/nvda.mo
+addon/doc/*/*.html
+addon/doc/style.css
+site_scons/site_tools/NVDATool/typings.py
+.sconsign.dblite
+
+# Internal planning and scratch
+.scratch/
+.tmp/
